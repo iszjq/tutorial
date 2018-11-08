@@ -9,33 +9,35 @@
     <meta name="author" content="">
     <link rel="icon" href="https://getbootstrap.com/favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
+    <title th:text="#{login.title}">Sign in</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./login_files/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" href="./login_files/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./login_files/signin.css" th:href="@{/css/signin.css}" rel="stylesheet">
+    <link th:href="@{/css/signin.css}" href="./login_files/signin.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
 <form class="form-signin">
-    <img class="mb-4" src="./login_files/bootstrap-solid.svg" th:src="@{/img/SFont.CN.svg}" alt="" width="72"
+    <img class="mb-4" th:src="@{/img/SFont.CN.svg}" src="./login_files/bootstrap-solid.svg" alt="" width="72"
          height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputUsername" class="sr-only">Username</label>
-    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+    <h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
+    <label for="inputUsername" class="sr-only" th:text="#{login.username}">Username</label>
+    <input type="text" id="inputUsername" class="form-control" th:placeholder="#{login.username}" placeholder="Username"
+           required="" autofocus="">
+    <label for="inputPassword" class="sr-only" th:text="#{login.password}">Password</label>
+    <input type="password" id="inputPassword" class="form-control" th:placeholder="#{login.password}"
+           placeholder="Password" required="">
     <div class="checkbox mb-3">
         <label>
-            <input type="checkbox" value="remember-me"> Remember me
+            <input type="checkbox" value="remember-me"> [[#{login.remember}]]
         </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
-    <a href="#" class="btn btn-sm" th:href="@{/login.html?lg=zh_CN}">中文</a>
-    <a href="#" class="btn btn-sm" th:href="@{/login.html?lg=en_US}">English</a>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{login.btn}">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">Copyright © 2018-2019</p>
+    <a href="#" class="btn btn-sm">中文</a>
+    <a href="#" class="btn btn-sm">English</a>
 </form>
 
 
