@@ -32,6 +32,9 @@ spring:
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
+  messages:
+    basename: i18n.login
+
 
 #mybatis:
 #  type-aliases-package:
