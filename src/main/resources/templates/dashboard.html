@@ -43,7 +43,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" th:fragment="topbar">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0"
        href="https://getbootstrap.com/docs/4.1/examples/dashboard/#dashboard.html">[[${session.loginUser}]]</a>
     <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
@@ -56,7 +56,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar" id="sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -95,7 +95,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://getbootstrap.com/docs/4.1/examples/dashboard/#dashboard.html">
+                        <a class="nav-link" th:href="@{/emps}" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                  stroke-linejoin="round" class="feather feather-users">
@@ -104,7 +104,7 @@
                                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg>
-                            Customers
+                            员工管理
                         </a>
                     </li>
                     <li class="nav-item">
@@ -381,7 +381,7 @@
 <script th:src="@{/asserts/js/jquery-3.3.1.slim.min.js}" src="./Dashboard_files/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="https://cdn.bootcss.com/jQuery-slimScroll/1.3.8/jquery.slimscroll.js"><\/script>')</script>
 <script th:src="@{/asserts/js/popper.min.js}" src="./Dashboard_files/popper.min.js"></script>
 <script th:src="@{/asserts/js/bootstrap.min.js}" src="./Dashboard_files/bootstrap.min.js"></script>
 
