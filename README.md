@@ -8,8 +8,8 @@ SpringBoot深入学习
 > 需注意的是SpringBoot1.x版本与SpringBoot2.x版本差别较多
 ---
 ###项目的问题与改进
--自己实现隐藏了h5后缀(.html)
--最后的Restful风格的CRUD只简单实现了查询
--没有实现持久化
+- 自己实现隐藏了h5后缀(.html)<br>
+- 最后的Restful风格的CRUD只简单实现了查询<br>
+- 没有实现持久化<br>
 ---
 [SpringBoot  B站雷丰阳老师课程](https://www.bilibili.com/video/av20965295)
