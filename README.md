@@ -7,7 +7,7 @@ SpringBoot深入学习
 > 基础部分注重对SpringBoot本身进行剖析，没有过多的项目内容<br>
 > 需注意的是SpringBoot1.x版本与SpringBoot2.x版本差别较多
 ---
-###项目的问题与改进
+### 项目的问题与改进
 - 自己实现隐藏了h5后缀(.html)<br>
 - 最后的Restful风格的CRUD只简单实现了查询<br>
 - 没有实现持久化<br>
