@@ -12,23 +12,28 @@
     <title th:text="#{login.title}">Sign in</title>
 
     <!-- Bootstrap core CSS -->
-    <link th:href="@{/css/bootstrap.min.css}" href="./login_files/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/asserts/css/bootstrap.min.css}" href="./login_files/bootstrap.min.css" rel="stylesheet"
+          type="text/css">
 
     <!-- Custom styles for this template -->
-    <link th:href="@{/css/signin.css}" href="./login_files/signin.css" rel="stylesheet">
+    <link th:href="@{/asserts/css/signin.css}" href="./login_files/signin.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="text-center">
-<form class="form-signin">
-    <img class="mb-4" th:src="@{/img/SFont.CN.svg}" src="./login_files/bootstrap-solid.svg" alt="" width="72"
+<form class="form-signin" th:action="@{/user/login}" method="post">
+    <img class="mb-4" th:src="@{/asserts/img/SFont.CN.svg}" src="./login_files/SFont.CN.svg" alt="" width="72"
          height="72">
     <h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
+    <!--/*@thymesVar id="msg" type="java.lang.String"*/-->
+    <!--条件判断-->
+    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+
     <label for="inputUsername" class="sr-only" th:text="#{login.username}">Username</label>
     <input type="text" id="inputUsername" class="form-control" th:placeholder="#{login.username}" placeholder="Username"
-           required="" autofocus="">
+           name="username" required="" autofocus="">
     <label for="inputPassword" class="sr-only" th:text="#{login.password}">Password</label>
     <input type="password" id="inputPassword" class="form-control" th:placeholder="#{login.password}"
-           placeholder="Password" required="">
+           name="password" placeholder="Password" required="">
     <div class="checkbox mb-3">
         <label>
             <input type="checkbox" value="remember-me"> [[#{login.remember}]]
@@ -39,7 +44,5 @@
     <a href="#" class="btn btn-sm" th:href="@{/(l='zh_cn')}">中文</a>
     <a href="#" class="btn btn-sm" th:href="@{/(l='en_US')}"> English</a>
 </form>
-
-
 </body>
 </html>
