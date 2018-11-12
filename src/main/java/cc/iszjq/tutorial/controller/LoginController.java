@@ -26,8 +26,9 @@ public class LoginController {
         }
     }
 
-    @GetMapping("/dashboard")
-    public String dashboard() {
-        return "dashboard";
+    @GetMapping("/user/out")
+    public String userOut(HttpSession session) {
+        session.invalidate();
+        return "login";
     }
 }
