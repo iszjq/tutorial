@@ -1,12 +1,17 @@
 package cc.iszjq.tutorial.controller;
 
 
+import cc.iszjq.tutorial.dao.DepartmentDao;
 import cc.iszjq.tutorial.dao.EmployeeDao;
+import cc.iszjq.tutorial.entity.Department;
 import cc.iszjq.tutorial.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Collection;
 
@@ -16,11 +21,42 @@ public class EmployeeController {
     @Autowired
     private EmployeeDao employeeDao;
 
+    @Autowired
+    private DepartmentDao departmentDao;
+
     //员工列表页面
     @GetMapping("/emps")
     public String list(ModelMap map) {
         Collection<Employee> employees = employeeDao.getAll();
         map.put("emps", employees);
         return "emp/list";
+    }
+
+    @GetMapping("/dashboard")
+    public String dashboard() {
+        return "dashboard";
+    }
+
+    @GetMapping("/emp")
+    public String toAddPage(Model model) {
+        //查出所有的部门,在页面显示
+        Collection<Department> departments = departmentDao.getDepartments();
+        model.addAttribute("depts", departments);
+        return "emp/add";
+    }
+
+    @PostMapping("/emp")
+    public String addEmp(Employee employee) {
+        employeeDao.save(employee);
+        return "redirect:/emps";
+    }
+
+    @GetMapping("/emp/{id}")
+    public String toEditPage(@PathVariable("id") Integer id, Model model) {
+        Employee employee = employeeDao.getEmpById(id);
+        model.addAttribute("emp", employee);
+        Collection<Department> departments = departmentDao.getDepartments();
+        model.addAttribute("depts", departments);
+        return "emp/add";
     }
 }
