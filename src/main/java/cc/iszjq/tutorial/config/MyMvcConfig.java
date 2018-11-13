@@ -28,7 +28,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
     //SpringBoot2.x发生了变化，需要自己处理
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**").excludePathPatterns("/index.html", "/", "/user/login", "/asserts/**");
+        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**").excludePathPatterns("/index.html", "/", "/user/login", "/assets/**");
     }
 
     /**
